@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { getCharacters } from '../services/characters-api';
+
 export default class List extends Component {
   state = { names: [] }
 
@@ -15,9 +17,12 @@ export default class List extends Component {
     const { names } = this.state;
 
     const nameElements = names.map(name => (
-      <li key={name}>
-        <span>{name.name}</span>
-      </li>
+      <Link className="character-link" to={`/detail/${name.id}`} 
+        key={`${name.id}`}>
+        <li key={name}>
+          <span>{name.name}</span>
+        </li>
+      </Link>
     ));
 
     return (
