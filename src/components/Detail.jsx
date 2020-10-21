@@ -18,7 +18,7 @@ export default class Detail extends Component {
 
   componentDidMount = async() => {
     const data = await fetchCharById(this.props.match.params.id);
-    console.log(data);
+    
 
     this.setState({
       name: data.name,
